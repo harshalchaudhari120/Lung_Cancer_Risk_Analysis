@@ -12,7 +12,7 @@ model = pickle.load(open("model/lung_cancer.pkl", "rb"))
 
 st.title('Prediction Web App')
 st.write("This is an interactive web page where you can select/input data to understand your chances of having lung cancer.")
-st.write("Please Note that excluding gender and age all the other variables are categorical i.e. 1 means negilgible and 10 means worst.")
+st.write("Please Note that excluding gender and age all the other variables are categorical i.e. 1 means negilgible and then as the number increases,the factor affecting the risk increases.")
 # Input variables (you can customize these based on your model's input features)
 gender_input = st.radio("Select Gender:", ("Male", "Female"))
 Age = st.number_input('Enter Age:', min_value=1, max_value=75, step=1)
@@ -38,11 +38,11 @@ if st.button("Predict"):
 
     predicted_value = model.predict(user_inputs)
     if predicted_value[0]==1:
-        st.write('Predicted Output:You are at a low risk of having cancer.')
+        st.write('You are at a low risk of having lung cancer.')
     elif predicted_value[0]==2:
-        st.write('Predicted Output:You are at a medium risk of having cancer.')
+        st.write('You are at a medium risk of having lung cancer.')
     else:
-        st.write('Predicted Output:You are at a high risk of having cancer.')
+        st.write('You are at a high risk of having lung cancer.')
 
 # In[ ]:
 
