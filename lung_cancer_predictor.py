@@ -8,8 +8,7 @@ import streamlit as st
 import pickle
 
 # Load the saved model
-with open('lung_cancer.pkl', 'rb') as f:
-    model = pickle.load(f)
+model = pickle.load(open("model/lung_cancer.pkl", "rb"))
 
 st.title('Prediction Web App')
 st.write("This is an interactive web page where you can select/input data to understand your chances of having lung cancer.")
